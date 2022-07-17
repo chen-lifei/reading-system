@@ -3,7 +3,7 @@
         <div class="title">登录</div>
         <div class="loginContent">
             <div class="leftCode">
-                <img src="@/assets/public/adventure.svg" >
+                <!-- <img src="@/assets/public/adventure.svg" > -->
             </div>
             <div class="rightLogin">
                 <div class="selectLogin">
@@ -42,13 +42,13 @@
                 </div>
                 <div class="otherLogin">
                     <div class="quickLogin">
-                        <img src="@/assets/public/qq.svg" alt="">QQ
+                        <!-- <img src="@/assets/public/qq.svg" alt="">QQ -->
                     </div>
                     <div class="quickLogin">
-                        <img src="@/assets/public/wechat.svg" alt="">微信
+                        <!-- <img src="@/assets/public/wechat.svg" alt="">微信 -->
                     </div>
                     <div class="quickLogin">
-                        <img src="@/assets/public/weibo.svg" alt="">新浪微博
+                        <!-- <img src="@/assets/public/weibo.svg" alt="">新浪微博 -->
                     </div>
                 </div>
                 <p class="qucikMethod">可选择快捷登录方式</p>
