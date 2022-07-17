@@ -10,7 +10,7 @@
                 :key="index"
                 :class="{ 'active': currentNav.key === item.key }"
                 @click="changeNav(item)">
-                <div class="icon">{{ item.icon || '+' }}</div>
+                <i class="iconfont" :class="item.icon"></i>
                 <div class="name">{{ item.name }}</div>
             </div>
         </div>
@@ -23,9 +23,9 @@
     @Component
     export default class LeftNavbar extends Vue {
         navList = [
-            { key: 'home', name: '首页', icon: '' },
-            { key: 'book', name: '个人书柜', icon: '' },
-            { key: 'history', name: '观看历史', icon: '' },
+            { key: 'home', name: '首页', icon: 'icon-home' },
+            { key: 'book', name: '个人书柜', icon: 'icon-bookcase' },
+            { key: 'history', name: '观看历史', icon: 'icon-history' },
         ];
         currentNav = {};
 
@@ -70,16 +70,16 @@
 
             .nav-item {
                 display: flex;
+                align-items: center;
                 width: 100%;
                 padding: 10px 5px;
                 margin-bottom: 10px;
                 border-radius: 5px;
                 cursor: pointer;
 
-                .icon {
-                    width: 16px;
-                    height: 16px;
-                    margin-right: 10px;
+                .iconfont {
+                    font-size: 20px;
+                    margin-right: 16px;
                     color: #7d8592;
                 }
 
@@ -91,7 +91,7 @@
                 &.active {
                     background: #8cab91;
 
-                    .icon,
+                    .iconfont,
                     .name {
                         color: #c5ebca;
                     }

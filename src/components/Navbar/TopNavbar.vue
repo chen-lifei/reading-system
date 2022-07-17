@@ -1,10 +1,10 @@
 <template>
     <div class="top-navbar-wrapper">
         <div class="message-wrapper">
-            +
+            <i class="iconfont icon-message"></i>
         </div>
         <div class="user-wrapper">
-            <img src="@/assets/public/myAvatar.jpg" alt="">
+            <img src="@/assets/image/myAvatar.jpg" alt="">
             <div class="name">言言花花</div>
         </div>
     </div>
@@ -35,6 +35,14 @@
             background: #d8e3d9;
             text-align: center;
             cursor: pointer;
+
+            .icon-message {
+                font-size: 20px;
+            }
+
+            &:hover {
+                background: #8cab91;
+            }
         }
 
         .user-wrapper {
@@ -55,6 +63,10 @@
 
             .name {
                 font-size: 12px;
+                max-width: 100px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }
     }
