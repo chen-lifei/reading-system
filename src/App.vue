@@ -44,7 +44,7 @@
     .right-wrapper {
         width: calc(100% - 270px);
         height: 100vh;
-        margin: 0 30px 0 240px;
+        margin-left: 240px;
         overflow: hidden;
     }
 </style>

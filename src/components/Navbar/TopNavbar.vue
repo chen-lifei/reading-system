@@ -22,14 +22,14 @@
     .top-navbar-wrapper {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         width: 100%;
-        height: 36px;
-        line-height: 36px;
-        margin-top: 30px;
+        height: 72px;
 
         .message-wrapper {
             width: 36px;
             height: 36px;
+            line-height: 36px;
             border-radius: 10px;
             margin-right: 20px;
             background: #d8e3d9;
