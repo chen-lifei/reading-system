@@ -11,13 +11,19 @@
             <div class="name-wrapper">
                 <div class="name">每日推荐</div>
                 <div class="change-page">
-                    <div class="left">&lt;</div>
-                    <div class="right">&gt;</div>
+                    <div class="left" @click="prePage()">
+                        <i class="iconfont icon-arrowRight"></i>
+                    </div>
+                    <div class="right" @click="nextPage()">
+                        <i class="iconfont icon-arrowRight"></i>
+                    </div>
                 </div>
             </div>
             <div class="book-wrapper">
-                <div class="book" v-for="(item, index) in bookList" :key="index">
-                    <img src="@/assets/image/bookCover.png" alt="">
+                <div class="book" v-for="(item, index) in currentBookList" :key="index">
+                    <div class="img-wrapper">
+                        <img src="@/assets/image/bookCover.png" alt="">
+                    </div>
                     <div class="bottom">
                         <div class="author">作者：{{ item.author }}</div>
                         <div class="name">{{ item.name }}</div>
@@ -35,16 +41,30 @@
     @Component
     export default class Home extends Vue {
         date = '';
-        bookList = [
+        currentPage: number = 1;
+        currentBookList: any = [];
+        bookList: any = [
             { name: '爱丽丝梦游仙境', author: '小猪佩奇', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
             { name: '爱丽丝梦游仙境', author: '小猪佩奇', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
             { name: '爱丽丝梦游仙境', author: '小猪佩奇', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
-            { name: '爱丽丝梦游仙境', author: '小猪佩奇', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' }
+            { name: '爱丽丝梦游仙境', author: '小猪佩奇', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
+            { name: '白雪公主', author: '安徒生', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
+            { name: '白雪公主', author: '安徒生', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
+            { name: '白雪公主', author: '安徒生', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
+            { name: '白雪公主', author: '安徒生', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
+            { name: '灰姑娘', author: '小猪佩奇', desc: '这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字这是一段介绍文字' },
         ];
+
+        prePage() {}
+        
+        nextPage() {
+            this.currentBookList = this.bookList.slice(4, 8);
+        }
 
         mounted() {
             let date = new Date();
             this.date = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}  ${date.getHours()}: ${date.getMinutes()}`;
+            this.currentBookList = this.bookList.slice(0, 4);
         }
     };
 </script>
@@ -86,18 +106,29 @@
                     .left,
                     .right {
                         display: inline-block;
-                        width: 16px;
-                        height: 16px;
-                        line-height: 16px;
-                        font-size: 12px;
-                        text-align: center;
+                        position: relative;
+                        width: 20px;
+                        height: 20px;
                         border-radius: 50%;
                         background: #d8e3d9;
                         cursor: pointer;
+
+                        .iconfont {
+                            position: absolute;
+                            top: 3px;
+                            left: 4px;
+                            font-size: 12px;
+                        }
                     }
     
                     .left {
                         margin-right: 8px;
+
+                        .iconfont {
+                            top: 4px;
+                            left: 3px;
+                            transform: rotate(180deg);
+                        }
                     }
                 }
             }
@@ -114,11 +145,22 @@
                     width: 25%;
                     margin-right: 25px;
 
-                    img {
+                    .img-wrapper {
+                        position: relative;
                         width: 100%;
-                        height: 240px;
-                        object-fit: cover;
+                        height: 0;
+                        padding-top: 90%;
+
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
                     }
+
 
                     .bottom {
                         width: 100%;
