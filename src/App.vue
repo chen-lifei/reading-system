@@ -22,6 +22,15 @@
     });
 </script>
 
+<style lang="css">
+    :root {
+        --backColor: #F6FCF2;
+        --hoverColor: #EDF7E6;
+        --activeColor: #D8E3D9;
+        --mainColor: #8CAB91;
+    }
+</style>
+
 <style lang="less">
     * {
         margin: 0;
@@ -32,7 +41,7 @@
         position: relative;
         width: auto;
         height: 100vh;
-        background: #f5fcf6;
+        background: var(--backColor);
     }
     .left-navbar {
         position: absolute;

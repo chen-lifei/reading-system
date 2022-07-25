@@ -32,7 +32,7 @@
             line-height: 36px;
             border-radius: 10px;
             margin-right: 20px;
-            background: #d8e3d9;
+            background: #FFFFFF;
             text-align: center;
             cursor: pointer;
 
@@ -51,7 +51,7 @@
             align-items: center;
             height: 36px;
             border-radius: 10px;
-            background: #d8e3d9;
+            background: #FFFFFF;
             padding: 0 8px;
 
             img {

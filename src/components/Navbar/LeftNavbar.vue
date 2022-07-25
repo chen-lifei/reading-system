@@ -27,7 +27,7 @@
             { key: 'book', name: '个人书柜', icon: 'icon-bookcase' },
             { key: 'history', name: '观看历史', icon: 'icon-history' },
         ];
-        currentNav = {};
+        currentNav: any = {};
 
         changeNav(item) {
             this.currentNav = item;
@@ -42,7 +42,7 @@
 <style lang="less" scoped>
     .navbar-wrapper {
         border-radius: 20px;
-        background: #d8e3d9;
+        background: #FFFFFF;
         padding: 20px 10px;
 
         .logo-wrapper {
@@ -52,14 +52,14 @@
             .logo {
                 width: 36px;
                 height: 36px;
-                background: #8cab91;
+                background: var(--mainColor);
                 border-radius: 5px;
             }
 
             .name {
                 font-size: 24px;
                 font-weight: bold;
-                color: #8cab91;
+                color: var(--mainColor);
                 margin-left: 20px;
             }
         }
@@ -89,11 +89,11 @@
 
                 &:hover,
                 &.active {
-                    background: #8cab91;
+                    background: var(--hoverColor);
 
                     .iconfont,
                     .name {
-                        color: #c5ebca;
+                        color: var(--mainColor);
                     }
                 }
             }

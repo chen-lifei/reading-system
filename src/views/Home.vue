@@ -85,7 +85,7 @@
                 height: 40px;
                 line-height: 40px;
                 border-radius: 10px;
-                background: #d8e3d9;
+                background: #FFFFFF;
                 padding: 0 16px;
 
                 .iconfont {
@@ -110,7 +110,7 @@
                         width: 20px;
                         height: 20px;
                         border-radius: 50%;
-                        background: #d8e3d9;
+                        background: var(--activeColor);
                         cursor: pointer;
 
                         .iconfont {
@@ -165,8 +165,9 @@
                     .bottom {
                         width: 100%;
                         padding: 8px;
-                        border: 1px solid #8cab91;
+                        border: 1px solid var(--activeColor);
                         border-top-color: transparent;
+                        background: #FFFFFF;
 
                         .author {
                             color: #818995;
@@ -174,7 +175,6 @@
                         }
 
                         .name {
-                            color: #8cab91;
                             margin: 8px 0;
                         }
 
