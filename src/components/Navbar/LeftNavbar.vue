@@ -1,7 +1,7 @@
 <template>
     <div class="navbar-wrapper">
         <div class="logo-wrapper">
-            <div class="logo"></div>
+            <img class="logo" src="@/assets/image/logo.svg" alt="logo" @click="toHome()">
             <div class="name">悦阅</div>
         </div>
         <div class="nav-list">
@@ -29,6 +29,10 @@
         ];
         currentNav: any = {};
 
+        toHome() {
+            this.$router.push({ path: '/home' });
+        }
+
         changeNav(item) {
             this.currentNav = item;
         }
@@ -54,6 +58,7 @@
                 height: 36px;
                 background: var(--mainColor);
                 border-radius: 5px;
+                cursor: pointer;
             }
 
             .name {
@@ -80,11 +85,11 @@
                 .iconfont {
                     font-size: 20px;
                     margin-right: 16px;
-                    color: #7d8592;
+                    color: var(--textColor);
                 }
 
                 .name {
-                    color: #7d8592;
+                    color: var(--textColor);
                 }
 
                 &:hover,

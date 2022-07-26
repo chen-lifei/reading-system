@@ -20,14 +20,14 @@
                 </div>
             </div>
             <div class="book-wrapper">
-                <div class="book" v-for="(item, index) in currentBookList" :key="index">
-                    <div class="img-wrapper">
-                        <img src="@/assets/image/bookCover.png" alt="">
-                    </div>
-                    <div class="bottom">
-                        <div class="author">作者：{{ item.author }}</div>
-                        <div class="name">{{ item.name }}</div>
-                        <div class="desc">{{ item.desc }}</div>
+                <div class="book-item" v-for="(item, index) in currentBookList" :key="index">
+                    <div class="book">
+                        <img src="@/assets/image/bookCover.png" alt=""/>
+                        <div class="bottom">
+                            <div class="author">作者：{{ item.author }}</div>
+                            <div class="name">{{ item.name }}</div>
+                            <div class="desc">{{ item.desc }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
 
             .sentence {
                 width: 70%;
-                color: #818995;
+                color: var(--textColor);
             }
 
             .calendar-wrapper {
@@ -110,7 +110,7 @@
                         width: 20px;
                         height: 20px;
                         border-radius: 50%;
-                        background: var(--activeColor);
+                        background: #FFFFFF;
                         cursor: pointer;
 
                         .iconfont {
@@ -139,17 +139,18 @@
                 width: 100%;
                 overflow: hidden;
 
-                .book {
+                .book-item {
                     display: flex;
                     flex-wrap: wrap;
                     width: 25%;
                     margin-right: 25px;
+                    cursor: pointer;
 
-                    .img-wrapper {
+                    .book {
                         position: relative;
                         width: 100%;
-                        height: 0;
-                        padding-top: 90%;
+                        height: 100%;
+                        padding-top: 120%;
 
                         img {
                             position: absolute;
@@ -158,35 +159,38 @@
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
-                        }
-                    }
-
-
-                    .bottom {
-                        width: 100%;
-                        padding: 8px;
-                        border: 1px solid var(--activeColor);
-                        border-top-color: transparent;
-                        background: #FFFFFF;
-
-                        .author {
-                            color: #818995;
-                            font-size: 12px;
+                            border-radius: 20px;
                         }
 
-                        .name {
-                            margin: 8px 0;
-                        }
-
-                        .desc {
+                        .bottom {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
                             width: 100%;
-                            color: #818995;
-                            font-size: 14px;
-                            text-overflow: ellipsis;
-                            overflow: hidden;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical;
+                            padding: 5% 8%;
+                            border-top-color: transparent;
+                            background: #FFFFFF;
+                            border-radius: 20px;
+
+                            .author {
+                                color: var(--textColor);
+                                font-size: 12px;
+                            }
+
+                            .name {
+                                margin: 8px 0;
+                            }
+
+                            .desc {
+                                width: 100%;
+                                color: var(--textColor);
+                                font-size: 14px;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                            }
                         }
                     }
 

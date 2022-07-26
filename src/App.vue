@@ -28,6 +28,7 @@
         --hoverColor: #EDF7E6;
         --activeColor: #D8E3D9;
         --mainColor: #8CAB91;
+        --textColor: #7D8592;
     }
 </style>
 
@@ -41,6 +42,7 @@
         position: relative;
         width: auto;
         height: 100vh;
+        min-width: 1080px;
         background: var(--backColor);
     }
     .left-navbar {
