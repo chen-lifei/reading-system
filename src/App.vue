@@ -3,7 +3,9 @@
         <LeftNavbar class="left-navbar" />
         <div class="right-wrapper">
             <TopNavbar class="top-navbar" />
-            <router-view />
+            <div class="main-wrapper">
+                <router-view />
+            </div>
         </div>
     </div>
 </template>
@@ -53,9 +55,16 @@
         height: calc(100% - 60px);
     }
     .right-wrapper {
-        width: calc(100% - 270px);
+        width: calc(100% - 240px);
         height: 100vh;
         margin-left: 240px;
         overflow: hidden;
+
+        .main-wrapper {
+            width: 100%;
+            height: calc(100% - 72px);
+            padding-right: 30px;
+            overflow: auto;
+        }
     }
 </style>

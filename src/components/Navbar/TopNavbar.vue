@@ -25,6 +25,7 @@
         align-items: center;
         width: 100%;
         height: 72px;
+        padding-right: 30px;
 
         .message-wrapper {
             width: 36px;

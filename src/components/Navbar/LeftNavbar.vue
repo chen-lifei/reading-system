@@ -24,7 +24,8 @@
     export default class LeftNavbar extends Vue {
         navList = [
             { key: 'home', name: '首页', icon: 'icon-home' },
-            { key: 'book', name: '个人书柜', icon: 'icon-bookcase' },
+            { key: 'library', name: '图书馆', icon: 'icon-bookcase' },
+            { key: 'bookcase', name: '个人书柜', icon: 'icon-book' },
             { key: 'history', name: '观看历史', icon: 'icon-history' },
         ];
         currentNav: any = {};
@@ -51,6 +52,7 @@
 
         .logo-wrapper {
             display: flex;
+            justify-content: center;
             margin-bottom: 30px;
 
             .logo {
