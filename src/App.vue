@@ -31,6 +31,8 @@
         --activeColor: #D8E3D9;
         --mainColor: #8CAB91;
         --textColor: #7D8592;
+        --dimColor: #8A8B98;
+        --borderColor: #E4E6E8;
     }
 </style>
 
@@ -46,6 +48,20 @@
         height: 100vh;
         min-width: 1080px;
         background: var(--backColor);
+    }
+    .hidden-scrollbar {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        &::-moz-scrollbar {
+            display: none;
+        }
+        &::-ms-scrollbar {
+            display: none;
+        }
+    };
+    .iconfont {
+        display: inline-block;
     }
     .left-navbar {
         position: absolute;

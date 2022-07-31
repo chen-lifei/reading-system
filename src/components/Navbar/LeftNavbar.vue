@@ -8,7 +8,7 @@
             <div class="nav-item"
                 v-for="(item, index) in navList"
                 :key="index"
-                :class="{ 'active': currentNav.key === item.key }"
+                :class="{ 'selected': currentNav.key === item.key }"
                 @click="changeNav(item)">
                 <i class="iconfont" :class="item.icon"></i>
                 <div class="name">{{ item.name }}</div>
@@ -36,6 +36,7 @@
 
         changeNav(item) {
             this.currentNav = item;
+            this.$router.push({ path: `/${item.key}` });
         }
 
         mounted () {
@@ -78,6 +79,7 @@
             .nav-item {
                 display: flex;
                 align-items: center;
+                position: relative;
                 width: 100%;
                 padding: 10px 5px;
                 margin-bottom: 10px;
@@ -95,12 +97,25 @@
                 }
 
                 &:hover,
-                &.active {
+                &.selected {
                     background: var(--hoverColor);
 
                     .iconfont,
                     .name {
                         color: var(--mainColor);
+                    }
+                }
+
+                &.selected {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        right: -10px;
+                        height: 100%;
+                        width: 4px;
+                        border-radius: 6px;
+                        background: var(--mainColor);
                     }
                 }
             }

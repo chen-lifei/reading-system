@@ -158,7 +158,6 @@
                         cursor: pointer;
 
                         .iconfont {
-                            display: inline-block;
                             position: absolute;
                             top: 3px;
                             left: 4px;
@@ -258,7 +257,6 @@
                 }
 
                 .iconfont {
-                    display: inline-block;
                     transform: scale(0.8);
                     margin-left: 5px;
                 }
