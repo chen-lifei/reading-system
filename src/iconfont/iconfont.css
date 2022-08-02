@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3528419 */
-  src: url('iconfont.ttf?t=1658328693608') format('truetype');
+  src: url('iconfont.ttf?t=1659454073930') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,58 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-remove:before {
+  content: "\e860";
+}
+
+.icon-tile:before {
+  content: "\e657";
+}
+
+.icon-list:before {
+  content: "\e658";
+}
+
+.icon-delete:before {
+  content: "\e64c";
+}
+
+.icon-arrowUp:before {
+  content: "\e62e";
+}
+
+.icon-arrowDown:before {
+  content: "\e62f";
+}
+
+.icon-like:before {
+  content: "\e607";
+}
+
+.icon-down:before {
+  content: "\ee1f";
+}
+
+.icon-up:before {
+  content: "\ee20";
+}
+
+.icon-hot:before {
+  content: "\e61c";
+}
+
+.icon-read:before {
+  content: "\e608";
+}
+
+.icon-lineChart:before {
+  content: "\e85e";
+}
+
+.icon-arrowLeft:before {
+  content: "\ee23";
 }
 
 .icon-arrowRight:before {
