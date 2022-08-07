@@ -3,14 +3,23 @@
         <div class="top-nav">
             <span class="name">分类：</span>
             <span class="select-name">青春</span>
-            <i class="iconfont icon-arrowRight"></i>
+            <i class="iconfont icon-arrowDown" @click="showDropdown = !showDropdown"></i>
             <div class="line"></div>
-            <div class="top-nav-list">
-
+            <div class="dropdown-wrapper hidden-scrollbar" v-if="showDropdown">
+                <div class="dropdown-item"
+                    v-for="item in topNavList"
+                    :key="item.key"
+                    :class="{ 'selected': item.key === 'qingchun' }">
+                    {{ item.name }}
+                </div>
             </div>
         </div>
         <div class="second-nav">
-            <div class="nav-item" v-for="item in currentNav" :key="item.key" :class="{ 'selected': item.key === 'school' }">
+            <div class="nav-item"
+                v-for="item in currentNav"
+                :key="item.key"
+                :class="{ 'selected': item.key === 'school' }"
+                @click="selectItem(item)">
                 <div class="name">{{ item.name }}</div>
                 <div class="desc">
                     <span class="number">数量：{{ item.number }}</span>
@@ -67,6 +76,11 @@
         ]
         currentSelect = this.topNavList[0]
         currentNav = this.currentSelect.list
+        showDropdown = false
+
+        selectItem(item) {
+            
+        }
     }
 </script>
 
@@ -92,7 +106,7 @@
                 font-weight: bold;
                 margin-left: 20px;
                 cursor: pointer;
-                transform: rotate(90deg) scale(.8);
+                transform: scale(.8);
             }
 
             .line {
@@ -104,13 +118,46 @@
                 background: var(--borderColor);
             }
 
-            .top-nav-list {
+            .dropdown-wrapper {
                 position: absolute;
+                top: 30px;
                 width: 100%;
                 height: auto;
+                border-radius: 6px;
                 max-height: 400px;
+                padding: 15px 10px;
                 overflow: hidden scroll;
                 background: #FFFFFF;
+                border: 1px solid var(--mainColor);
+                box-shadow: 0 5px 15px 0 var(--activeColor);
+                z-index: 2;
+
+                .dropdown-item {
+                    position: relative;
+                    height: 40px;
+                    line-height: 40px;
+                    padding-left: 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &:hover,
+                    &.selected {
+                        background: var(--hoverColor);
+                    }
+
+                    &.selected {
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            right: -10px;
+                            height: 100%;
+                            width: 4px;
+                            border-radius: 6px;
+                            background: var(--mainColor);
+                        }
+                    }
+                }
             }
         }
 

@@ -6,6 +6,7 @@
         <div class="user-wrapper">
             <img src="@/assets/image/myAvatar.jpg" alt="">
             <div class="name">言言花花</div>
+            <i class="iconfont icon-arrowDown"></i>
         </div>
     </div>
 </template>
@@ -59,15 +60,21 @@
                 width: 24px;
                 height: 24px;
                 border-radius: 50%;
-                margin-right: 5px;
             }
 
             .name {
                 font-size: 12px;
                 max-width: 100px;
+                margin: 0 8px;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
+            }
+
+            .iconfont {
+                font-size: 12px;
+                transform: scale(0.9);
+                cursor: pointer;
             }
         }
     }

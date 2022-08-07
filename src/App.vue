@@ -79,8 +79,6 @@
         .main-wrapper {
             width: 100%;
             height: calc(100% - 72px);
-            padding-right: 30px;
-            overflow: auto;
         }
     }
 </style>
