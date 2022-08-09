@@ -2,13 +2,13 @@
     <div class="select-bar">
         <div class="top-nav">
             <span class="name">分类：</span>
-            <span class="select-name">青春</span>
-            <i class="iconfont icon-arrowDown" @click="showDropdown = !showDropdown"></i>
+            <span class="select-name">{{ isNavList ? selectTopNav : topNav }}</span>
+            <i class="iconfont icon-arrowDown" @click="showDropdown = !showDropdown" v-if="isNavList"></i>
             <div class="line"></div>
             <div class="dropdown-wrapper hidden-scrollbar" v-if="showDropdown">
                 <div class="dropdown-item"
-                    v-for="item in topNavList"
-                    :key="item.key"
+                    v-for="(item, index) in topNav"
+                    :key="index"
                     :class="{ 'selected': item.key === 'qingchun' }">
                     {{ item.name }}
                 </div>
@@ -16,14 +16,15 @@
         </div>
         <div class="second-nav">
             <div class="nav-item"
-                v-for="item in currentNav"
-                :key="item.key"
+                v-for="(item, index) in navList"
+                :key="index"
                 :class="{ 'selected': item.key === 'school' }"
                 @click="selectItem(item)">
                 <div class="name">{{ item.name }}</div>
                 <div class="desc">
-                    <span class="number">数量：{{ item.number }}</span>
-                    <span class="click-number">点击量：{{ item.clickNumber }}</span>
+                    <span class="number" v-if="item.number">数量：{{ item.number }}本</span>
+                    <span class="click-number" v-if="item.clickNumber">点击量：{{ item.clickNumber }}</span>
+                    <span class="create-date" v-if="item.createDate">创建时间：{{ item.createDate }}</span>
                 </div>
             </div>
         </div>
@@ -31,55 +32,26 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Watch } from 'vue-property-decorator';
+    import { Vue, Component, Prop } from 'vue-property-decorator';
 
     @Component
     export default class SelectNavbar extends Vue {
-        topNavList = [
-            {
-                key: 'qingchun',
-                name: '青春',
-                list: [
-                    { key: 'school', name: '校园', number: '3', clickNumber: 16 },
-                    { key: 'love', name: '爱情', number: '4', clickNumber: 16 },
-                    { key: 'panni', name: '叛逆', number: '5', clickNumber: 16 },
-                    { key: 'xuanyi', name: '悬疑惊悚', number: '6', clickNumber: 6 },
-                    { key: 'mohuan', name: '魔幻奇幻', number: '7', clickNumber: 10 },
-                ]
-            },
-            {
-                key: 'story',
-                name: '小说',
-                list: [
-                    { key: 'yanqing', name: '言情', number: '6', clickNumber: 6 },
-                    { key: 'modern', name: '现代', number: '6', clickNumber: 6 },
-                    { key: 'urban', name: '都市', number: '6', clickNumber: 6 },
-                    { key: 'historical', name: '历史', number: '6', clickNumber: 6 },
-                    { key: 'classical', name: '古典', number: '6', clickNumber: 6 },
-                    { key: 'wuxia', name: '武侠', number: '6', clickNumber: 6 },
-                    { key: 'zuopinji', name: '作品集', number: '6', clickNumber: 6 },
-                    { key: 'masterpiece', name: '世界名著', number: '6', clickNumber: 6 },
-                    { key: 'xuanyi', name: '悬疑推理', number: '6', clickNumber: 6 },
-                    { key: 'kongbu', name: '恐怖惊悚', number: '6', clickNumber: 6 },
-                ]
-            },
-            {
-                key: 'wenxue',
-                name: '文学',
-                list: [
-                    { key: 'wenji', name: '文集', number: '6', clickNumber: 6 },
-                    { key: 'jishi', name: '纪实文学', number: '6', clickNumber: 6 },
-                    { key: 'poem', name: '古诗词', number: '6', clickNumber: 6 },
-                    { key: 'shige', name: '现当代诗歌', number: '6', clickNumber: 6 },
-                ]
-            },
-        ]
-        currentSelect = this.topNavList[0]
-        currentNav = this.currentSelect.list
-        showDropdown = false
+        @Prop({ type: [Array, String], default: '' }) topNav: any;
+        @Prop({ type: Array, default: [] }) navList: any;
 
-        selectItem(item) {
+        isNavList = false;
+        showDropdown = false;
+        selectTopNav = '青春';
+
+        mounted() {
+            this.isNavList = Array.isArray(this.topNav);
             
+        }
+
+        // currentSelect = this.topNav[0]
+        // currentNav = this.currentSelect.list
+
+        selectItem(item) {   
         }
     }
 </script>

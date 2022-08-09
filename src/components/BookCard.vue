@@ -34,8 +34,7 @@
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
 
-    @Component({
-    })
+    @Component
     export default class BookCard extends Vue {
         @Prop({ type: Object, default: {} }) readonly bookInfo: any;
         @Prop({ type: String, default: 'tile' }) readonly displayType: any;
